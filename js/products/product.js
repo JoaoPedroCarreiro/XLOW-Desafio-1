@@ -54,7 +54,7 @@ class Product {
         const wrapper = document.getElementById(`images-wrapper-${this.product.productId}`)
 
         let canMove = false
-
+        
         const down = ev => {
             ev.preventDefault()
             canMove = true
@@ -94,10 +94,9 @@ class Product {
             }
 
             const up = () => {
+                if(canChange && pressed) document.getElementById(`image-url-${this.product.productId}`).src = item.images[0].imageUrl
+                
                 pressed = false
-
-                if(canChange) document.getElementById(`image-url-${this.product.productId}`).src = item.images[0].imageUrl
-
                 canChange = true
             }
 
